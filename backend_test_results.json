@@ -1,8 +1,8 @@
 {
   "summary": {
     "tests_run": 9,
-    "tests_passed": 4,
-    "success_rate": 44.4
+    "tests_passed": 9,
+    "success_rate": 100.0
   },
   "test_results": [
     {
@@ -24,7 +24,7 @@
       "success": true,
       "response_size": 144,
       "response_data": {
-        "id": "0bdb8c48-f056-473a-a353-d2a54b783511",
+        "id": "72b45c8e-089c-411d-9cbf-b5debb488786",
         "filename": "test_image.png",
         "width": 800,
         "height": 600,
@@ -35,7 +35,7 @@
     },
     {
       "test_name": "Image Preview",
-      "endpoint": "/image/preview/0bdb8c48-f056-473a-a353-d2a54b783511",
+      "endpoint": "/image/preview/72b45c8e-089c-411d-9cbf-b5debb488786",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -45,46 +45,44 @@
       "test_name": "Image Export (PNG)",
       "endpoint": "/image/export",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_size": 144,
-      "error_response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"image_id\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.12/v/missing\"}]}"
+      "actual_status": 200,
+      "success": true,
+      "response_size": 2783
     },
     {
       "test_name": "Image Export (JPEG)",
       "endpoint": "/image/export",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_size": 144,
-      "error_response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"image_id\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.12/v/missing\"}]}"
+      "actual_status": 200,
+      "success": true,
+      "response_size": 3136
     },
     {
       "test_name": "Image Export (WEBP)",
       "endpoint": "/image/export",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_size": 144,
-      "error_response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"image_id\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.12/v/missing\"}]}"
+      "actual_status": 200,
+      "success": true,
+      "response_size": 946
     },
     {
       "test_name": "Resize Export (Width Only)",
       "endpoint": "/image/export",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_size": 144,
-      "error_response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"image_id\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.12/v/missing\"}]}"
+      "actual_status": 200,
+      "success": true,
+      "response_size": 932
     },
     {
       "test_name": "Invalid Image ID Export",
       "endpoint": "/image/export",
       "expected_status": 404,
-      "actual_status": 422,
-      "success": false,
-      "response_size": 144,
-      "error_response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"image_id\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.12/v/missing\"}]}"
+      "actual_status": 404,
+      "success": true,
+      "response_size": 28,
+      "response_data": {
+        "detail": "Image not found"
+      }
     },
     {
       "test_name": "Invalid File Upload",
@@ -98,5 +96,5 @@
       }
     }
   ],
-  "uploaded_image_id": "0bdb8c48-f056-473a-a353-d2a54b783511"
+  "uploaded_image_id": "72b45c8e-089c-411d-9cbf-b5debb488786"
 }
