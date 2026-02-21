@@ -252,7 +252,8 @@ class PixelPerfectAPITester:
             "POST",
             "/image/export",
             404,
-            data={'image_id': 'invalid-id', 'format': 'png'}
+            data={'image_id': 'invalid-id', 'format': 'png'},
+            form_data=True
         )
 
         # Test invalid upload (non-image file)
