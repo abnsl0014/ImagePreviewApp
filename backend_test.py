@@ -14,7 +14,7 @@ class PixelPerfectAPITester:
         self.test_results = []
         self.uploaded_image_id = None
 
-    def run_test(self, name, method, endpoint, expected_status, files=None, data=None):
+    def run_test(self, name, method, endpoint, expected_status, files=None, data=None, form_data=False):
         """Run a single API test"""
         url = f"{self.api_base}{endpoint}"
         headers = {}
@@ -29,6 +29,8 @@ class PixelPerfectAPITester:
             elif method == 'POST':
                 if files:
                     response = requests.post(url, files=files, data=data, timeout=30)
+                elif form_data:
+                    response = requests.post(url, data=data, timeout=30)
                 else:
                     headers['Content-Type'] = 'application/json'
                     response = requests.post(url, json=data, headers=headers, timeout=30)
