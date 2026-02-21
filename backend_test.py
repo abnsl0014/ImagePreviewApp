@@ -229,7 +229,8 @@ class PixelPerfectAPITester:
             "POST",
             "/image/export",
             200,
-            data=form_data
+            data=form_data,
+            form_data=True
         )
 
         if success:
